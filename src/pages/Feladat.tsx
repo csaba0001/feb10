@@ -1,4 +1,6 @@
 import kep from "./kep.jpg";
+import "../pages/flexstyle.css";
+
 
 function Feladat() {
   return (

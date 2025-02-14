@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import Feladat from "./pages/Feladat";
-import "./pages/style.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Counter from "./pages/Counter";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -10,7 +11,21 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Feladat />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <a href="/flexfeladat">feb 10</a>
+              <a href="/counter">feb 14</a>
+            </div>
+          }
+        />
+        <Route path="/flexfeladat" element={<Feladat />} />
+        <Route path="/counter" element={<Counter />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
