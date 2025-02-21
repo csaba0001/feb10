@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Counter from "./pages/Counter";
 import Layout from "./pages/Layout";
 import Kerteszet from "./pages/kerteszet";
+import BackButton from "./pages/BackButton";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -26,10 +27,42 @@ root.render(
             </div>
           }
         />
-        <Route path="/flexfeladat" element={<Feladat />} />
-        <Route path="/counter" element={<Counter />} />
-        <Route path="/layout" element={<Layout />} />
-        <Route path="/kerteszet" element={<Kerteszet />} />
+        <Route
+          path="/flexfeladat"
+          element={
+            <div>
+              {" "}
+              <BackButton /> <Feladat />{" "}
+            </div>
+          }
+        />
+        <Route
+          path="/counter"
+          element={
+            <div>
+              {" "}
+              <BackButton /> <Counter />{" "}
+            </div>
+          }
+        />
+        <Route
+          path="/layout"
+          element={
+            <div>
+              {" "}
+              <BackButton /> <Layout />{" "}
+            </div>
+          }
+        />
+        <Route
+          path="/kerteszet"
+          element={
+            <div>
+              {" "}
+              <BackButton /> <Kerteszet />{" "}
+            </div>
+          }
+        />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

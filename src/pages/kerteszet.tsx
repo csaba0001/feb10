@@ -42,18 +42,26 @@ function Kerteszet() {
     const ChangedPlant = { price };
 
     if (price <= 0) {
-        alert("pozitív legyen az ár");
-        return;
+      alert("pozitív legyen az ár");
+      return;
     }
-  
+
     apiClient.put(`plants/${id}`, ChangedPlant).then(() => {
       apiClient.get(`plants`).then((resp) => {
         setData(resp.data);
         console.log(resp.data);
       });
     });
-  }
-  
+  };
+
+  const DeletePlant = (id: number) => {
+    apiClient.delete(`plants/${id}`).then(() => {
+      apiClient.get(`plants`).then((resp) => {
+        setData(resp.data);
+        console.log(resp.data);
+      });
+    });
+  };
 
   return (
     <div>
@@ -66,8 +74,8 @@ function Kerteszet() {
             <th>név</th>
             <th>évelő</th>
             <th>ár</th>
-            <th>kategória</th> 
-            <th>ár módosítása</th> 
+            <th>kategória</th>
+            <th>ár módosítása</th>
           </tr>
         </thead>
         <tbody>
@@ -78,7 +86,30 @@ function Kerteszet() {
               <td>{d.perennial ? "Igen" : "Nem"}</td>
               <td>{d.price}</td>
               <td>{d.category}</td>
-              <td><input type="number" onChange={(e)=>{setPrice(Number(e.target.value))}} /> <button onClick={()=>{ChangePrice(d.id)}}>Mód.</button> </td>
+              <td>
+                <input
+                  type="number"
+                  onChange={(e) => {
+                    setPrice(Number(e.target.value));
+                  }}
+                />{" "}
+                <button
+                  onClick={() => {
+                    ChangePrice(d.id);
+                  }}
+                >
+                  Mód.
+                </button>{" "}
+              </td>
+              <td>
+                <button
+                  onClick={() => {
+                    DeletePlant(d.id);
+                  }}
+                >
+                  Törlés
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -86,7 +117,10 @@ function Kerteszet() {
 
       <div>
         <label>Ár: </label>
-        <input type="number" onChange={(e) => setPrice(Number(e.target.value))} />
+        <input
+          type="number"
+          onChange={(e) => setPrice(Number(e.target.value))}
+        />
       </div>
 
       <div>

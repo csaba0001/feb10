@@ -53,25 +53,24 @@ app.post("/plants", (req, res) => {
 });
 
 app.put("/plants/:id", (req, res) => {
-    const { price } = req.body;
-    const { id } = req.params; 
-  
-    if (!price || price <= 0) {
-      return res.status(400).json({ error: "Invalid price!" });
-    }
-  
-    db.run(
-      "UPDATE plants SET price = ? WHERE id = ?",
-      [price, id],
-      function (err) {
-        if (err) {
-          return res.status(500).json({ error: err.message });
-        }
-        res.json({ message: "Sikeres frissítés!" });
+  const { price } = req.body;
+  const { id } = req.params;
+
+  if (!price || price <= 0) {
+    return res.status(400).json({ error: "Invalid price!" });
+  }
+
+  db.run(
+    "UPDATE plants SET price = ? WHERE id = ?",
+    [price, id],
+    function (err) {
+      if (err) {
+        return res.status(500).json({ error: err.message });
       }
-    );
-  });
-  
+      res.json({ message: "Sikeres frissítés!" });
+    }
+  );
+});
 
 app.delete("/plants/:id", (req, res) => {
   const { id } = req.params;
