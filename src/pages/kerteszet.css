@@ -1,0 +1,8 @@
+th,tr,td{
+    border: 1px black solid;
+    border-collapse: collapse;
+}
+
+button{
+    width: 100px;
+}

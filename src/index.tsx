@@ -5,6 +5,7 @@ import Feladat from "./pages/Feladat";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Counter from "./pages/Counter";
 import Layout from "./pages/Layout";
+import Kerteszet from "./pages/kerteszet";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,6 +21,7 @@ root.render(
             <div>
               <a href="/flexfeladat">feb 10</a>
               <a href="/counter">feb 14</a>
+              <a href="/kerteszet">feb 17</a>
               <a href="/layout">feb 21</a>
             </div>
           }
@@ -27,6 +29,7 @@ root.render(
         <Route path="/flexfeladat" element={<Feladat />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/layout" element={<Layout />} />
+        <Route path="/kerteszet" element={<Kerteszet />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
