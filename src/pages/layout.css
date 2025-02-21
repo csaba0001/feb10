@@ -1,0 +1,43 @@
+.container-custom {
+    height: 30vh;
+    border: 2px solid black;
+}
+.row > .col {
+    margin: 2px;
+    border: 1px solid black;
+}
+.container-blue {
+    height: 30vh;
+    background-color: var(--bs-info);
+}
+.container-scroll {
+    height: 30vh;
+    border: 2px solid black;
+    margin-top: 2rem;
+    overflow: auto;
+}
+.container-dark {
+    height: 30vh;
+    background-color: var(--bs-secondary);
+    border: 2px solid black;
+    margin-top: 2rem;
+}
+.row-danger {
+    background-color: var(--bs-danger);
+    color: var(--bs-light);
+    margin: 2px;
+}
+.row-warning {
+    background-color: var(--bs-warning);
+    color: var(--bs-dark);
+    margin: 2px;
+}
+.col-primary {
+    background-color: var(--bs-primary);
+}
+.col-success {
+    background-color: var(--bs-success);
+}
+.col-info {
+    background-color: var(--bs-info);
+}
