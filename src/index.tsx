@@ -7,6 +7,7 @@ import Counter from "./pages/Counter";
 import Layout from "./pages/Layout";
 import Kerteszet from "./pages/kerteszet";
 import BackButton from "./pages/BackButton";
+import Algoritmusok from "./pages/Algoritmusok";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,6 +21,7 @@ root.render(
           path="/"
           element={
             <div>
+              <a href="/algo">feb 7</a>
               <a href="/flexfeladat">feb 10</a>
               <a href="/counter">feb 14</a>
               <a href="/kerteszet">feb 17</a>
@@ -60,6 +62,15 @@ root.render(
             <div>
               {" "}
               <BackButton /> <Kerteszet />{" "}
+            </div>
+          }
+        />
+        <Route
+          path="/algo"
+          element={
+            <div>
+              {" "}
+              <BackButton /> <Algoritmusok />{" "}
             </div>
           }
         />
